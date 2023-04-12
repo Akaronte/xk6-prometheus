@@ -85,26 +85,26 @@ func (a *PrometheusAdapter) Handler() http.Handler {
 	return promhttp.HandlerFor(a.registry, promhttp.HandlerOpts{}) // nolint:exhaustivestruct
 }
 
-func (a *PrometheusAdapter) handleSample(sample *module github.com/akaronte/xk6-prometheus) {
-	var handler func(*metrics.Sample)
+// func (a *PrometheusAdapter) handleSample(sample *module xk6-prometheus) {
+// 	var handler func(*metrics.Sample)
 
-	switch sample.Metric.Type {
-	case metrics.Counter:
-		handler = a.handleCounter
-	case metrics.Gauge:
-		handler = a.handleGauge
-	case metrics.Rate:
-		handler = a.handleRate
-	case metrics.Trend:
-		handler = a.handleTrend
-	default:
-		a.logger.Warnf("Unknown metric type: %v", sample.Metric.Type)
+// 	switch sample.Metric.Type {
+// 	case metrics.Counter:
+// 		handler = a.handleCounter
+// 	case metrics.Gauge:
+// 		handler = a.handleGauge
+// 	case metrics.Rate:
+// 		handler = a.handleRate
+// 	case metrics.Trend:
+// 		handler = a.handleTrend
+// 	default:
+// 		a.logger.Warnf("Unknown metric type: %v", sample.Metric.Type)
 
-		return
-	}
+// 		return
+// 	}
 
-	handler(sample)
-}
+// 	handler(sample)
+// }
 
 func (a *PrometheusAdapter) tagsToLabelNames(tags *metrics.SampleTags) []string {
 	m := tags.CloneTags()
