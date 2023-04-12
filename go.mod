@@ -1,6 +1,6 @@
 module github.com/akaronte/xk6-prometheus
 
-go 1.19
+go 1.16
 
 require (
 	github.com/gorilla/schema v1.2.0
