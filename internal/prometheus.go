@@ -85,7 +85,7 @@ func (a *PrometheusAdapter) Handler() http.Handler {
 	return promhttp.HandlerFor(a.registry, promhttp.HandlerOpts{}) // nolint:exhaustivestruct
 }
 
-func (a *PrometheusAdapter) handleSample(sample *metrics.Sample) {
+func (a *PrometheusAdapter) handleSample(sample *module github.com/akaronte/xk6-prometheus) {
 	var handler func(*metrics.Sample)
 
 	switch sample.Metric.Type {
